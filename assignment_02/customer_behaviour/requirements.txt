@@ -1,0 +1,29 @@
+# Customer-behaviour application (Assignment 2, Application 3) — Python dependencies
+# for the notebook + API. The web client is React + Vite (see web/package.json,
+# Node 18+); the mobile client is Flutter (see mobile/). Neither needs this file.
+#
+# Tested on Python 3.13, Windows 11 (see notebook §0 for the exact recorded versions).
+# RANDOM_SEED = 42 throughout.
+# Dataset: Kaggle nadyinky/sephora-products-and-skincare-reviews — download
+# reviews_500-750.csv + product_info.csv into data/sephora/ (not committed, ~505 MB).
+
+# --- core ML / data ---
+numpy>=2.0
+pandas>=2.2
+scikit-learn==1.9.0        # must match the version that pickled model/model_pipeline.joblib
+scipy>=1.13
+joblib>=1.3
+
+# --- notebook / EDA ---
+matplotlib>=3.8
+jupyter>=1.0
+nbformat>=5.9
+nbclient>=0.9             # used to execute the notebook programmatically
+
+# --- API (serving) ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+
+# --- misc ---
+requests>=2.31           # API smoke tests

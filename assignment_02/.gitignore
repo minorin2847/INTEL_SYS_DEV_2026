@@ -1,0 +1,100 @@
+# Node.js / Frontend / Web
+node_modules/
+dist/
+dist-ssr/
+build/
+.next/
+.nuxt/
+.out/
+.vite/
+.cache/
+.turbo/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*.log
+
+# Python / Jupyter / ML
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+
+# Trained model artifacts (regenerable from notebooks)
+*.pkl
+*.joblib
+*.h5
+*.onnx
+*.pth
+*.pt
+*.tflite
+!diabetes/model/model_pipeline.joblib
+!diabetes/model/feature_names.joblib
+!house_price/model/model_pipeline.joblib
+!house_price/model/feature_names.joblib
+
+# Flutter / Dart / Mobile
+.dart_tool/
+.pub-cache/
+.pub/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+**/Flutter/ephemeral/
+**/Flutter/Generated.xcconfig
+**/Flutter/flutter_export_environment.sh
+**/flutter/ephemeral/
+**/flutter/generated_plugin_registrant.*
+**/flutter/generated_plugins.cmake
+**/Runner/GeneratedPluginRegistrant.*
+**/Runner/GeneratedPluginRegistrant.swift
+
+# Android / Capacitor / Java
+.project
+.classpath
+.settings/
+.gradle/
+**/android/.gradle/
+**/android/app/build/
+**/android/local.properties
+local.properties
+*.iml
+.externalNativeBuild/
+.cxx/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Temporary / local scratch
+*.tmp
+.tmp/
+**/tmp/
+**/temp/
+_scratch/
+
+# Raw Kaggle datasets (large; fetched via each app's data/README.md)
+*/data/*.csv
+*/data/*.zip
+
+# OS / Editor / AI Tools
+.DS_Store
+Thumbs.db
+.idea/
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.claude/*
+!.claude/launch.json
+.gemini/

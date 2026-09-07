@@ -1,0 +1,20 @@
+# --- regenerable serving artifacts (rebuild with: python api/build_artifacts.py) ---
+api/artifacts/
+api/runtime/
+model/holdout_scores.joblib
+
+# --- python ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# --- flutter ---
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins*
+mobile/android/.gradle/
+
+# NOTE: model/model_pipeline.joblib, model/feature_names.joblib and
+# model/input_schema.json ARE committed — they are the graded persisted pipeline.

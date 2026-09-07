@@ -1,0 +1,54 @@
+name: customer-behaviour
+
+# Two services: the FastAPI model service and the nginx-served React client.
+#   docker compose up --build
+#   web  -> http://localhost:5174     (calls /api, proxied to the api service)
+#   api  -> http://localhost:8000/docs
+#
+# The mobile (Flutter) client is NOT containerised — it runs on a device/emulator
+# and needs a URL it can reach. On the Android emulator that is http://10.0.2.2:8000;
+# for a physical phone use the host LAN IP, or expose the api via a tunnel (see the
+# optional ngrok service below).
+
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: api/Dockerfile
+    ports:
+      - "8002:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/healthz').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+    cpus: 1.0
+    mem_limit: 768m
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "5175:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+    cpus: 0.5
+    mem_limit: 128m
+
+  # --- optional: public HTTPS tunnel to the api, so a real phone can reach it ---
+  # Fill NGROK_AUTHTOKEN (and NGROK_DOMAIN if you have a reserved one) in a .env
+  # file next to this compose file, then:  docker compose --profile tunnel up --build
+  # ngrok:
+  #   image: ngrok/ngrok:latest
+  #   profiles: ["tunnel"]
+  #   command: ["http", "api:8000", "--log=stdout"]
+  #   environment:
+  #     NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+  #   ports:
+  #     - "4040:4040"        # ngrok inspector: http://localhost:4040
+  #   depends_on:
+  #     - api

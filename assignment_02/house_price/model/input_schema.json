@@ -1,0 +1,72 @@
+{
+  "target": "Price (million VND); model trained on log1p(Price), invert with expm1",
+  "task": "regression",
+  "chosen_model": "RandomForest",
+  "random_seed": 42,
+  "sklearn_version": "1.9.0",
+  "price_unit": "million VND",
+  "numeric_features": [
+    "Area",
+    "Width",
+    "Length",
+    "Bedrooms",
+    "Bathrooms",
+    "Floors",
+    "Alley Width",
+    "Agent Listing Count",
+    "Bedrooms_missing",
+    "Bathrooms_missing",
+    "Floors_missing"
+  ],
+  "categorical_features": [
+    "Property Type",
+    "Position",
+    "Direction",
+    "Road Type",
+    "Province",
+    "Agent Role",
+    "district"
+  ],
+  "model_features_order": [
+    "Area",
+    "Width",
+    "Length",
+    "Bedrooms",
+    "Bathrooms",
+    "Floors",
+    "Alley Width",
+    "Agent Listing Count",
+    "Bedrooms_missing",
+    "Bathrooms_missing",
+    "Floors_missing",
+    "Property Type",
+    "Position",
+    "Direction",
+    "Road Type",
+    "Province",
+    "Agent Role",
+    "district"
+  ],
+  "engineered": [
+    "district (parsed from Location: Quận/Huyện/Thị xã/TP token, else ward, else Unknown)",
+    "Bedrooms_missing",
+    "Bathrooms_missing",
+    "Floors_missing",
+    "99th-pct cap on Area/Width/Length/Alley Width"
+  ],
+  "dropped_columns": [
+    "Title (leaks Price)",
+    "Description",
+    "Listing ID",
+    "VIP Account",
+    "Avatar",
+    "Agent Name",
+    "Property Type Slug",
+    "Last Updated",
+    "Scraped At",
+    "Last Updated Date",
+    "Latitude",
+    "Longitude",
+    "Location"
+  ]
+}
