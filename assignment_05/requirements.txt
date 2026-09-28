@@ -1,0 +1,29 @@
+# Python 3.10–3.12 (TensorFlow does not support newer Python versions yet).
+# Works on Windows, Linux and macOS:
+#   python -m venv .venv
+#   .venv\Scripts\activate        (Windows)   |   source .venv/bin/activate   (macOS/Linux)
+#   pip install -r requirements.txt
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+torch
+jupyter
+ipykernel
+kaggle
+tqdm
+
+# TensorFlow
+# - Apple silicon: TF 2.18 + tensorflow-metal (Apple GPU plugin, latest release needs TF 2.18)
+# - Linux / WSL2: tensorflow[and-cuda] installs the CUDA + cuDNN libraries for NVIDIA GPUs
+# - native Windows: CPU only (Google stopped GPU builds for Windows after TF 2.10; use WSL2 for the GPU)
+tensorflow==2.18.*; sys_platform == "darwin" and platform_machine == "arm64"
+tensorflow-metal==1.2.*; sys_platform == "darwin" and platform_machine == "arm64"
+tensorflow[and-cuda]>=2.16; sys_platform == "linux"
+tensorflow>=2.16; sys_platform == "win32" or (sys_platform == "darwin" and platform_machine != "arm64")
+
+# PyTorch: the default Linux wheel already includes CUDA. On Windows with an NVIDIA GPU, install the CUDA
+# build first, then the rest:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu126
