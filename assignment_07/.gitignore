@@ -1,0 +1,27 @@
+# Raw Kaggle data (download with the commands in README.md)
+customer_review/data/*
+stock_forecast/data/*
+!customer_review/data/.gitkeep
+!stock_forecast/data/.gitkeep
+
+# Trained models and checkpoints
+**/models/
+*.keras
+*.h5
+*.pt
+*.pth
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz
+
+# OS
+.DS_Store
