@@ -1,0 +1,14 @@
+.git
+.gitignore
+.venv
+__pycache__
+*/__pycache__
+*.pyc
+.make
+neo4j_data
+web/node_modules
+web/dist
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc

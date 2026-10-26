@@ -1,0 +1,13 @@
+requests
+beautifulsoup4
+pandas
+neo4j
+underthesea
+tqdm
+networkx
+matplotlib
+ipykernel
+nbconvert
+scipy
+fastapi
+uvicorn[standard]
