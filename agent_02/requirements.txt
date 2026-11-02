@@ -1,0 +1,12 @@
+# Experiment script (code/agent02_experiment.py)
+numpy>=2.2,<3
+matplotlib>=3.10,<4
+
+# Notebook (notebook/agent02_demo.ipynb)
+ipython>=8.39,<9
+ipykernel>=7.3,<8
+jupyterlab>=4.6,<5
+nbformat>=5.11,<6
+nbconvert>=7.17,<8
+
+# The report is built separately with XeLaTeX (see README); it is not a Python dependency.
